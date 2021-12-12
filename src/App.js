@@ -12,6 +12,10 @@ import Login from './Login';
 import React,{ useEffect } from 'react';
 import { auth } from './fireabase';
 import { useStateValue } from './StateProvider';
+import Payment from './Payment';
+// import { loadStripe } from "@stripe/stripe-js";
+// import { Elements } from "@stripe/react-stripe-js";
+// const promise = loadStripe("pk_test_51K5X2yK93NNAxaRTw2zkFBqO736rCZJvaYYU1mejlLPeN931r0aR1GSiwndjkUiJlbsijtT3Hv3nMsXb0in6GFaJ0058JFNyIy");
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -47,11 +51,15 @@ function App() {
       <Route path ="/checkout"> 
           <Header> </Header>
           <Checkout/>
-        </Route>
-        <Route path ="/"> 
+      </Route>
+      <Route path="/payment"> 
+          <Header> </Header>
+          <Payment> </Payment>
+      </Route>
+      <Route path ="/"> 
           <Header> </Header>
           <Home> </Home>
-        </Route>
+       </Route>
       </Switch>
       
     </div>

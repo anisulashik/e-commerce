@@ -5,7 +5,8 @@ import { faSearch,faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { useStateValue } from './StateProvider';
 import { auth } from './fireabase'
-
+import logo from './img/logo.png'
+import banner from './img/banner4.jpg'
 
 
 function Header() {
@@ -21,7 +22,7 @@ function Header() {
         <div className='header'>
             <Link to='/'> 
                 <img className="header__logo"
-                src="https://cloudfront-us-east-1.images.arcpublishing.com/ajc/KHBQ4LE6CJGQRA6LIKISDCCVHE.jpg"/>
+                src={logo}/>
             </Link>
            <div>
            
@@ -36,9 +37,9 @@ function Header() {
             <Link to='/login'> 
             <div onClick={handleAuthenticaton} className="header__option"> 
                 <span className="header__optionLineOne "> 
-                Hello Guest
+                Hello {!user? "Guest" : user.email}
                 </span>
-                <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
+                <span className="header__optionLineTwo">{user? 'Sign Out' : 'Sign In'}</span>
 
             </div>
             </Link>
